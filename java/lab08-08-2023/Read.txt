@@ -1,0 +1,46 @@
+----------
+Nome da class
+----------
+Atributos
+----------
+metodos
+----------
+
+"objeto" eh a instancia de uma class
+
+public class Pessoa{
+    public String nome;
+    protected String email;
+    private String telefone;
+
+    public  Pessoal (String nome){
+        this.nome = nome;
+    }
+
+    public String getnome(){
+        return this.nome;
+    }
+
+    public String setnome(String nome){
+        this.nome = nome;
+    }
+}
+
+public class Aluno extends Pessoal {
+    private matricula mat;
+
+    public Aluno (String mat, String nome){
+        super(nome);
+        this.mat = mat;
+    }
+}
+
+public class Teste{
+    static void main(String args[]){
+        Alun a;
+        Pessoas p;
+
+        a = new Aluno("1234", "Suzane");
+        p = new Pessoa("joao");
+    }
+}
