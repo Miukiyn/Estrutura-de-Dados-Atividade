@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-// Classe para facilitar operaçoes de leitura e escrita com diferentes tipos de dados
+// Classe para facilitar operacoes de leitura e escrita com diferentes tipos de dados
 class UTF {
     private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     private static String charset = "ISO-8859-1";
@@ -13,7 +13,7 @@ class UTF {
         charset = newCharset;
     }
 
-    // Métodos para leitura de diferentes tipos de dados
+    // Metodos para leitura de diferentes tipos de dados
     public static String readLine() {
         String s = "";
         try {
@@ -62,7 +62,7 @@ class UTF {
         return b;
     }
 
-    // Métodos para impressão de diferentes tipos de dados
+    // Metodos para impressao de diferentes tipos de dados
     public static void print() {
     }
 
@@ -120,12 +120,12 @@ class UTF {
 
 public class LerHTML {
 
-    // Funçao para verificar se uma string e igual a "FIM"
+    // Funcao para verificar se uma string e igual a "FIM"
     public static boolean isFim(String s) {
         return s.equals("FIM");
     }
 
-    // Funçao para obter o conteudo HTML de um endereço web
+    // Funcao para obter o conteudo HTML de um endereco web
     public static String getHtml(String endereco) {
         try {
             URL url = new URL(endereco);
@@ -172,18 +172,25 @@ public class LerHTML {
 
                 for (int i = 0; i < html.length(); i++) {
                     char c = html.charAt(i);
-                    
+
                     if (vogais.indexOf(c) != -1) {
                         contagemCaracteres[c]++;
-                    } else if (c >= 'b' && c <= 'z' && c != 'q') {
-                        qtdConsoantes++;
+                    } else if (c >= 'b' && c <= 'z') {
+                        if (c != '\u0061' && c != '\u0065' && c != '\u0069' && c != '\u006F' &&
+                                c != '\u0075' && c != '\u00E1' && c != '\u00E9' && c != '\u00ED' &&
+                                c != '\u00F3' && c != '\u00FA' && c != '\u00E0' && c != '\u00E8' &&
+                                c != '\u00EC' && c != '\u00F2' && c != '\u00F9' && c != '\u00E3' &&
+                                c != '\u00F5' && c != '\u00E2' && c != '\u00EA' && c != '\u00EE' &&
+                                c != '\u00F4' && c != '\u00FB') {
+                            qtdConsoantes++;
+                        }
                     } else if (c == '<') {
-                        int endIndex = i + 7; 
+                        int endIndex = i + 7;
                         if (endIndex <= html.length()) {
                             String tag = html.substring(i + 1, endIndex);
                             if (tag.equalsIgnoreCase("table>")) {
                                 qtdTABLE += qtd[qtdIndex];
-                                i = endIndex - 1; 
+                                i = endIndex - 1;
                             }
                         }
                     }
