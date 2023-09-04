@@ -189,7 +189,7 @@ public class LerHTML {
                         if (endIndex <= html.length()) {
                             String tag = html.substring(i + 1, endIndex);
                             if (tag.equalsIgnoreCase("table>")) {
-                                qtdTABLE += qtd[qtdIndex];
+                                qtdTABLE++;
                                 i = endIndex - 1;
                             }
                         }
